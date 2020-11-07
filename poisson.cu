@@ -246,7 +246,7 @@ __global__ void odd_extension(double *charge, cufftDoubleComplex *charge_ext, do
 		return;
 	}
 	if (y == NY) {
-		charge_ext[gpu_scalar_index(x, y)].x = convertCtoCharge*(charge[gpu_scalar_index(x, 1)] - T[gpu_scalar_index(x, 1)]) / eps + voltage2 / dy / dy;
+		charge_ext[gpu_scalar_index(x, y)].x = convertCtoCharge*(charge[gpu_scalar_index(x, NE - y)] - T[gpu_scalar_index(x, NE - y)]) / eps + voltage2 / dy / dy;
 		charge_ext[gpu_scalar_index(x, y)].y = 0.0;
 		return;
 	}
